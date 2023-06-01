@@ -1,8 +1,9 @@
 #sublist {
-    background-color: blue;
+    background-color: rgba(43,45,49,255);
+    position: relative;
 }
 #window {
-    background-color: green;
+    background-color: rgba(49,51,56,255);
 }
 #home {
     display: grid;

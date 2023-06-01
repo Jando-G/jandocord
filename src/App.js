@@ -30,14 +30,12 @@ function App() {
     getUser();
   }, [])
 
-  console.log(user);
-
   return (
     <div className="App">
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home user={user  ? user._id : "null"} />} />
+          <Route path="/" element={<Home user={user  ? user : "null"} />} />
         </Routes>
       </Router>
     </div>

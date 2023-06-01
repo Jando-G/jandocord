@@ -1,5 +1,6 @@
 import React from "react";
 import ServerList from "./ServerList";
+import UserPanel from "./UserPanel";
 import "../Stylesheets/Home.css";
 
 export default function Login(props) {
@@ -7,7 +8,7 @@ export default function Login(props) {
     <div id="home">
       <ServerList />
       <div id="sublist">
-        <div id="userpanel"></div>
+        <UserPanel user={props.user}/>
       </div>
       <div id="window">
         <div id="navbar">

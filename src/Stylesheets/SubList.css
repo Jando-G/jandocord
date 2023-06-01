@@ -1,0 +1,26 @@
+#userpanel {
+    background-color: rgba(35,36,40,255);
+    height: 52px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    color: #F2F3F5;
+    display: flex;
+    align-items: center;
+}
+.profilecard {
+    height: 42px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+}
+.profilecard > img {
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    margin-right: 12px;
+}
+.username {
+    font-size: 16px;
+}
