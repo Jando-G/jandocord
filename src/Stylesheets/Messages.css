@@ -1,0 +1,57 @@
+#MessagesParent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#Messages {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+  overflow-y: auto; 
+}
+#MessageBox {
+    color: #dcdee1;
+    border-style: none;
+    background-color: #383a40;
+    width: calc(100% - 32px); 
+    padding: 10px; 
+    box-sizing: border-box;
+    margin: 16px;
+}
+#MessageBox::placeholder {
+    color: #6d6f77;
+}
+.Message {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding: 10px;
+  }
+  .Message:hover {
+    background-color: #2b2d31;
+  }
+  .image {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin-right: 16px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .info {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+    column-gap: 8px;
+  }
+  
+  .content p {
+    margin: 0;
+  }
+  
