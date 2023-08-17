@@ -7,7 +7,7 @@ export default function AddFriend(props) {
 
         const params = {
           username: e.target[0].value,
-          discriminator: e.target[1].value
+          discriminator: e.target[1].value === "" ? "0" : e.target[1].value
         }
 
       fetch("http://localhost:5000/user/addfriend", {
@@ -35,9 +35,9 @@ export default function AddFriend(props) {
     <div className="subbtn">
       <div>Add Friend</div>
       <form id="friendform" onSubmit={addFriend}>
-        <input type="text" id="username" name="username" placeholder="username"/>
+        <input type="text" id="username" name="username" placeholder="username" required/>
         <div>#</div>
-        <input type="text" id="discriminator" name="discriminator" placeholder="id"/>
+        <input type="number" id="discriminator" name="discriminator" placeholder="id"/>
         <input type="Submit" />
       </form>
     </div>

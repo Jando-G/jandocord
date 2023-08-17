@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, useLocation, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from './Components/Login';
 import Home from './Components/Home';
-import Cookies from 'js-cookie';
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:3001')
 
 function App() {
   const [user, setUser] = useState(null);
@@ -35,7 +37,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home user={user  ? user : "null"} />} />
+          <Route path="/" element={<Home socket={socket} user={user  ? user : "null"} />} />
         </Routes>
       </Router>
     </div>
