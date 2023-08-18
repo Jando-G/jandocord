@@ -97,7 +97,7 @@ export default function Login(props) {
         )) : null}
         <div ref={bottomEl}></div>
       </div>
-      <form onSubmit={handleSubmit}><input type="text" id="MessageBox" placeholder={`Message @${props.friend.username}`} /></form>
+      <form onSubmit={handleSubmit}><input minLength="1" maxLength="2000" autoComplete="off" type="text" id="MessageBox" placeholder={`Message @${props.friend.username}`} /></form>
     </div>
   );
 }

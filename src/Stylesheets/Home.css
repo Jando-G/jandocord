@@ -11,3 +11,19 @@
     grid-template-columns: 72px 240px 1fr;
     height: 100vh;
 }
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #1a1b1e; 
+    border-radius: 4px; 
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #2b2d31; 
+  }
+  #username, input[type="Submit"]{
+    color: white;
+    border: none;
+    background: none;
+    background-color: #35373c;
+}

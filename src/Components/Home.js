@@ -10,14 +10,21 @@ import { useNavigate  } from 'react-router-dom';
 export default function Login(props) {
 
   const [friend, setFriend] = useState(null);
+  const [friends, setFriends] =useState([]);
   const navigate = useNavigate ();
 
-  const friends = [];
-    if(props.user.friends) {
-      for(let i = 0; i < props.user.friends.length; i++) {
-        friends.push(<ProfileCard user={props.user.friends[i]} key={i} onClick={()=> setFriend(props.user.friends[i])} />)
-      }
+  useEffect(() => {
+    if (props.user.friends) {
+      const newFriends = props.user.friends.map((friend, index) => (
+        <ProfileCard
+          user={friend}
+          key={index}
+          onClick={() => setFriend(friend)}
+        />
+      ));
+      setFriends(newFriends);
     }
+  }, [props.user.friends]);
 
     
   useEffect(() => {
@@ -31,7 +38,7 @@ export default function Login(props) {
     <div id="home">
       <ServerList />
        <div id="sublist">
-        <AddFriend/>
+        <AddFriend setFriends={setFriends} setFriend={setFriend}/>
         <div className="BtnBig" onClick={()=>setFriend(null)}>About</div>
         {friends}
         <UserPanel user={props.user} />
