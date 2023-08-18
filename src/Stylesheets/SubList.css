@@ -31,3 +31,10 @@
 .subbtn {
     color: rgb(251, 251, 251)
 }
+svg {
+    margin-left: auto;
+}
+svg:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}

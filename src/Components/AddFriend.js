@@ -63,15 +63,8 @@ export default function AddFriend(props) {
         }
         return res.json();
       }).then(data => {
-        //oh my this is so ugly what am I doin dawg
-        const newFriends = data.user.friends.map((friend, index) => (
-          <ProfileCard
-            user={friend}
-            key={index}
-            onClick={() => props.setFriend(friend)}
-          />
-        ));
-        props.setFriends(newFriends);
+        e.target[0].value = "";
+        props.setFriends(data.user.friends);
       }).catch(err => {
         console.error(err);
       })
