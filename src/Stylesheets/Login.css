@@ -1,0 +1,209 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+
+* {
+    box-sizing: border-box;
+  }
+  
+body {
+  color: rgb(234, 237, 243);
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  height: 100vh; 
+  overflow: hidden; 
+}
+
+.wrapper {
+  background: -webkit-linear-gradient(top left, #1e2124 0%, #424549 100%);
+  background: -moz-linear-gradient(top left, #1e2124 0%, #424549 100%);
+  background: -o-linear-gradient(top left, #1e2124 0%, #424549 100%);
+  background: linear-gradient(to bottom right, #1e2124 0%, #424549 100%);
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+.bg-bubbles {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-bubbles li {
+  position: absolute;
+  list-style: none;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.15);
+  bottom: -160px;
+  animation: square 25s infinite;
+  transition-timing-function: linear;
+}
+
+.bg-bubbles li:nth-child(1) {
+  left: 10%;
+}
+
+.bg-bubbles li:nth-child(2) {
+  left: 20%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 2s;
+  animation-duration: 17s;
+}
+
+.bg-bubbles li:nth-child(3) {
+  left: 25%;
+  animation-delay: 4s;
+}
+
+.bg-bubbles li:nth-child(4) {
+  left: 35%;
+  width: 60px;
+  height: 60px;
+  animation-duration: 22s;
+  background-color: rgba(255, 255, 255, 0.25);
+}a
+
+.bg-bubbles li:nth-child(5) {
+  left: 45%;
+  animation-delay: 3s;
+}
+
+.bg-bubbles li:nth-child(6) {
+    left: 65%;
+    width: 70px;
+    height: 70px;
+    animation-delay: 1s;
+    animation-duration: 20s;
+  }
+  
+  .bg-bubbles li:nth-child(7) {
+    left: 70%;
+    width: 100px;
+    height: 100px;
+    animation-delay: 5s;
+    animation-duration: 18s;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .bg-bubbles li:nth-child(8) {
+    left: 80%;
+    width: 50px;
+    height: 50px;
+    animation-delay: 3s;
+    animation-duration: 24s;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .bg-bubbles li:nth-child(9) {
+    left: 85%;
+    width: 120px;
+    height: 120px;
+    animation-delay: 7s;
+    animation-duration: 16s;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .bg-bubbles li:nth-child(10) {
+    left: 100%;
+    width: 90px;
+    height: 90px;
+    animation-delay: 2s;
+    animation-duration: 21s;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+@keyframes square {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+  
+.button {
+  --offset: 10px;
+  --border-size: 2px;
+  display: block;
+  position: relative;
+  padding: 2em 5em;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #7289da;
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background .8s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button:hover {
+  background: rgba(100, 0, 0, .03);
+}
+
+.button__horizontal,
+.button__vertical {
+  position: absolute;
+  top: var(--horizontal-offset, 0);
+  right: var(--vertical-offset, 0);
+  bottom: var(--horizontal-offset, 0);
+  left: var(--vertical-offset, 0);
+  transition: transform .8s ease;
+  will-change: transform;
+}
+
+.button__horizontal::before,
+.button__vertical::before {
+  content: '';
+  position: absolute;
+  border: inherit;
+}
+
+.button__horizontal {
+  --vertical-offset: calc(var(--offset) * -1);
+  border-top: var(--border-size) solid currentcolor;
+  border-bottom: var(--border-size) solid currentcolor;
+}
+
+.button__horizontal::before {
+  top: calc(var(--vertical-offset) - var(--border-size));
+  bottom: calc(var(--vertical-offset) - var(--border-size));
+  left: calc(var(--vertical-offset) * -1);
+  right: calc(var(--vertical-offset) * -1);
+}
+
+.button:hover .button__horizontal {
+  transform: scaleX(0);
+}
+
+.button__vertical {
+  --horizontal-offset: calc(var(--offset) * -1);
+  border-left: var(--border-size) solid currentcolor;
+  border-right: var(--border-size) solid currentcolor;
+}
+
+.button__vertical::before {
+  top: calc(var(--horizontal-offset) * -1);
+  bottom: calc(var(--horizontal-offset) * -1);
+  left: calc(var(--horizontal-offset) - var(--border-size));
+  right: calc(var(--horizontal-offset) - var(--border-size));
+}
+
+.button:hover .button__vertical {
+  transform: scaleY(0);
+}

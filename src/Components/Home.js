@@ -56,9 +56,8 @@ export default function Login(props) {
 
   return (
     <div id="home">
-      <ServerList />
        <div id="sublist">
-       <div className="BtnBig" onClick={()=>setFriend(null)}>About</div>
+       <div style={{marginLeft: "8px"}} className="BtnBig" onClick={()=>setFriend(null)}>About</div>
         <AddFriend setFriends={setFriends} setFriend={setFriend}/>
         {friends.map((friend, index) => (
         <ProfileCard

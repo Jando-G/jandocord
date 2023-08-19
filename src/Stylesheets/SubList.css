@@ -8,6 +8,9 @@
     display: flex;
     align-items: center;
 }
+#userpanel svg{
+    margin-right: 8px;
+}
 .profilecard, .bigbtn{
     height: 42px;
     width: 100%;
@@ -29,7 +32,8 @@
     font-size: 16px;
 }
 .subbtn {
-    color: rgb(251, 251, 251)
+    color: rgb(251, 251, 251);
+    margin-bottom: 16px;
 }
 svg {
     margin-left: auto;

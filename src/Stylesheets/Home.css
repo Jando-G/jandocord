@@ -8,7 +8,7 @@
 }
 #home {
     display: grid;
-    grid-template-columns: 72px 240px 1fr;
+    grid-template-columns: 240px 1fr;
     height: 100vh;
 }
 ::-webkit-scrollbar {

@@ -84,9 +84,10 @@ export default function AddFriend(props) {
 
   return (
     <div className="subbtn">
-      <div>Add Friend</div>
+      <div style={{marginLeft: "8px"}}>Add Friend</div>
       <form id="friendform" onSubmit={addFriend}>
         <input 
+          style={{marginLeft: "8px"}}
           type="text" 
           id="username" 
           name="username" 

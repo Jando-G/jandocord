@@ -9,7 +9,7 @@ export default function UserPanel(props) {
     <div className="profilecard" onClick={props.onClick}>
         <img src={`https://cdn.discordapp.com/avatars/${props.user.discordId}/${props.user.avatar}`} alt="Avatar"></img>
         <div className="username">{props.user.username} <span style={{ color: '#6d6f77' }}>{props.user.discriminator !== "0" ? `#${props.user.discriminator}` : ""}</span></div>
-        {props.user.id && <Icon path={mdiDelete} size={1} onClick={(e=> {
+        {props.user.id && <Icon path={mdiDelete} size={1} color="#6d6f77" onClick={(e=> {
           e.stopPropagation();
           props.removeFriend();
         })}/>}
