@@ -27,6 +27,10 @@ function App() {
         setUser(resObject.user);
       }).catch(err=> {
         console.log(err);
+        if (window.location.pathname !== '/login') {
+          window.location.href = '/login';
+          return null; 
+        }
       })
     }
     getUser();

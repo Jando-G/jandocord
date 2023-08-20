@@ -22,8 +22,22 @@
     background-color: #2b2d31; 
   }
   #username, input[type="Submit"]{
-    color: white;
+    color: #dcdee1;
     border: none;
     background: none;
     background-color: #35373c;
+    height: 2.5rem;
+    margin-top: 8px;
+}
+#username {
+  width: calc(80% - 8px);
+}
+input[type="Submit"] {
+  width: calc(20% - 8px);
+  border: #dcdee1 inset 1px;
+}
+input[type="Submit"]:hover {
+  background-color: #7289da;
+  width: calc(20% - 8px);
+  border: #dcdee1 inset 1px;
 }

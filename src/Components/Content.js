@@ -5,5 +5,5 @@ export default function Login(props) {
     if(props.friend) {
         return <Messages user={props.user} friend={props.friend} socket={props.socket}/>
     }
-    return <div>About me</div>
+    return <div>Hello welcome to my app</div>
 }

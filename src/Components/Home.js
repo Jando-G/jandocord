@@ -1,17 +1,18 @@
 import React, { useState, useEffect} from "react";
-import ServerList from "./ServerList";
 import ProfileCard from "./ProfileCard";
 import AddFriend from "./AddFriend";
 import UserPanel from "./UserPanel";
 import Content from "./Content";	
 import "../Stylesheets/Home.css";
 import { useNavigate  } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 export default function Login(props) {
 
   const [friend, setFriend] = useState(null);
   const [friends, setFriends] =useState([]);
   const navigate = useNavigate ();
+
 
   const removeFriend = (friendId) => {
     fetch(`http://localhost:5000/user/removefriend/${friendId}`, {
@@ -57,7 +58,6 @@ export default function Login(props) {
   return (
     <div id="home">
        <div id="sublist">
-       <div style={{marginLeft: "8px"}} className="BtnBig" onClick={()=>setFriend(null)}>About</div>
         <AddFriend setFriends={setFriends} setFriend={setFriend}/>
         {friends.map((friend, index) => (
         <ProfileCard
