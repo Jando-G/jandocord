@@ -26,7 +26,7 @@ export default function Login(props) {
         setMessages((prevMessages) => [...prevMessages, message]);
       }).off();
      };
-  }, []);
+  }, [props.socket]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -71,7 +71,7 @@ export default function Login(props) {
       });
     }
     getUser();
-  }, [props.user, props.friend.id])
+  }, [props.user, props.friend.id, props.url])
 
   useEffect(()=> {
     props.socket.emit('join-thread', threadId);

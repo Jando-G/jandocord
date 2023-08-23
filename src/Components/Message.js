@@ -23,7 +23,7 @@ export default function Message(props) {
 
   return (
   <div className="Message">
-    <img src={props.image} className="image" />
+    <img src={props.image} className="image" alt="profile"/>
     <div className="content">
       <div className="info">
         <p style={{ color: "#F2F3F5" }}>{props.sender}</p>

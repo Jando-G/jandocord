@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../Stylesheets/SubList.css";
 import Icon from '@mdi/react';
 import { mdiDelete } from '@mdi/js';
