@@ -26,11 +26,22 @@
 #MessageBox::placeholder {
     color: #6d6f77;
 }
-.Message {
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.Message,  .profilecard{
     display: flex;
     align-items: flex-start;
     width: 100%;
     padding: 10px;
+    animation: slideIn 0.5s ease forwards;
   }
   .Message:hover {
     background-color: #2b2d31;

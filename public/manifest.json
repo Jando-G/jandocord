@@ -1,6 +1,6 @@
 {
-    "short_name": "CloseWeUI",
-    "name": "The front-end UI for CloseWe",
+    "short_name": "JandoCord",
+    "name": "JandoCord messaging app",
     "icons": [
       {
         "src": "favicon.ico",
