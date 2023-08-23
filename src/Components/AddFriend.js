@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import _debounce from 'lodash/debounce';
 import ProfileCard from './ProfileCard';
 
@@ -21,7 +21,7 @@ export default function AddFriend(props) {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/user/search?q=${searchQuery}`);
+      const response = await fetch(`${props.url}/user/search?q=${searchQuery}`);
       const data = await response.json();
       setSearchResults(data);
     } catch (error) {
@@ -48,13 +48,12 @@ export default function AddFriend(props) {
         username: username,
         discriminator: discriminator
       }
-      fetch("http://localhost:5000/user/addfriend", {
+      fetch(`${props.url}/user/addfriend`, {
         method: "POST",
         credentials: "include",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": true,
         },
         body: JSON.stringify(params),
       }).then(res => {

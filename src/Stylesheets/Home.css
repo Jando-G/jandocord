@@ -9,7 +9,13 @@
 #home {
     display: grid;
     grid-template-columns: 240px 1fr;
-    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transition: left 0.3s ease;
 }
 ::-webkit-scrollbar {
     width: 8px;
@@ -40,4 +46,36 @@ input[type="Submit"]:hover {
   background-color: #7289da;
   width: calc(20% - 8px);
   border: #dcdee1 inset 1px;
+}
+#side-circle{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #home {
+    grid-template-columns: 1fr;
+  }
+  #sublist {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 2;
+    transition: left 0.3s ease, transform 0.3s ease;
+  }
+  #sublist.swiped {
+    left: -240px;
+    transition: left 0.3s ease, transform 0.3s ease;
+  }
+  /* Add a round black div */
+  #side-circle {
+    position: absolute;
+    top: 10px;
+    left: 250px;
+    display: block;
+  }
+  .darkened {
+    background:#000;
+    opacity:0.5;
+  }
 }

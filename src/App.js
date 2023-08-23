@@ -5,20 +5,22 @@ import Login from './Components/Login';
 import Home from './Components/Home';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:3001')
+const url = "https://jandocord-d39f82b85605.herokuapp.com"
+
+const socket = io(url)
 
 function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const getUser = ()=> {
-      fetch("http://localhost:5000/user/profile", {
+      fetch(`${url}/user/profile`, {
         method: "GET",
         credentials: "include",
+        withCredentials: true,
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": true,
         }
       }).then(res=> {
         if(res.status===200) return res.json();
@@ -40,8 +42,8 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home socket={socket} user={user  ? user : "null"} />} />
+          <Route path="/login" element={<Login url={url}/>} />
+          <Route path="/" element={<Home socket={socket} user={user  ? user : "null"} url={url} />} />
         </Routes>
       </Router>
     </div>

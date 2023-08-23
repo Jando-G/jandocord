@@ -4,24 +4,27 @@ import AddFriend from "./AddFriend";
 import UserPanel from "./UserPanel";
 import Content from "./Content";	
 import "../Stylesheets/Home.css";
-import { useNavigate  } from 'react-router-dom';
-import Cookies from 'js-cookie';
+import Icon from '@mdi/react';
+import { mdiArrowRightDropCircle } from '@mdi/js';
+import { mdiArrowLeftDropCircle } from '@mdi/js';
 
 export default function Login(props) {
 
   const [friend, setFriend] = useState(null);
   const [friends, setFriends] =useState([]);
-  const navigate = useNavigate ();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
+  const handleSwipe = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   const removeFriend = (friendId) => {
-    fetch(`http://localhost:5000/user/removefriend/${friendId}`, {
+    fetch(`${props.url}/user/removefriend/${friendId}`, {
         method: "PUT",
         credentials: "include",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": true,
         }
       }).then(res => {
         if(!res.ok) {
@@ -30,9 +33,9 @@ export default function Login(props) {
         return res.json();
       }).then(() => {
          //clear friend if currently viewing deleted friend
-         if(friend.id === friendId) {
-          setFriend(null);
-         }
+         if(friend && friend.id === friendId) {
+           setFriend(null);
+          }
          // for some reason mongoose not returning updated friends. it is what it is.
          const newFriends = friends.filter((friend) => friend.id !== friendId);
          setFriends(newFriends);
@@ -47,18 +50,10 @@ export default function Login(props) {
     }
   }, [props.user.friends]);
 
-    
-  useEffect(() => {
-    // Check if the user object is null, and if so, redirect to the login page
-    if (!props.user) {
-      navigate.push('/login');
-    }
-  }, [props.user, navigate]);
-
   return (
     <div id="home">
-       <div id="sublist">
-        <AddFriend setFriends={setFriends} setFriend={setFriend}/>
+       <div id="sublist" className={isSidebarOpen ? '' : 'swiped'}>
+        <AddFriend url={props.url} setFriends={setFriends} setFriend={setFriend}/>
         {friends.map((friend, index) => (
         <ProfileCard
           user={friend}
@@ -67,13 +62,11 @@ export default function Login(props) {
           removeFriend={() => removeFriend(friend.id)}
         />
       ))}
-        <UserPanel user={props.user} />
+        <UserPanel url={props.url} user={props.user} />
+        <div id="side-circle"><Icon color="#7289da" path={isSidebarOpen ? mdiArrowLeftDropCircle : mdiArrowRightDropCircle} size={1.5} onClick={handleSwipe} /></div>
       </div>
-      <div id="window">
-        <div id="navbar">
-          <div id="options"></div>
-        </div>
-        <Content friend={friend} user={props.user} socket={props.socket}/>
+      <div id="window" className={isSidebarOpen ? 'darkened' : ''} onClick={isSidebarOpen ? handleSwipe : undefined}>
+        <Content url={props.url} friend={friend} user={props.user} socket={props.socket}/>
       </div>
     </div>
   );

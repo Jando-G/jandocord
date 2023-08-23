@@ -31,13 +31,12 @@ export default function Login(props) {
   const handleSubmit = e => {
     e.preventDefault();
     if (e.target.MessageBox.value) {
-      fetch(`http://localhost:5000/user/send`, {
+      fetch(`${props.url}/user/send`, {
         method: "POST",
         credentials: "include",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": true,
         },
         body: JSON.stringify({ friendId: props.friend.id, message: e.target.MessageBox.value }),
       }).then(res => {
@@ -56,13 +55,12 @@ export default function Login(props) {
 
   useEffect(() => {
     const getUser = () => {
-      fetch(`http://localhost:5000/user/messages?friendId=${props.friend.id}`, {
+      fetch(`${props.url}/user/messages?friendId=${props.friend.id}`, {
         method: "GET",
         credentials: "include",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": true,
         },
       }).then(res => {
         if (res.status === 200) return res.json();
