@@ -1,5 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 * {
     box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 body {
     margin: 0;
